@@ -1,0 +1,11 @@
+https://www.youtube.com/watch?v=ktIpDuzSqiU
+https://icon-icons.com/icon/user-account-person-avatar/131248
+
+settings
+urls
+App/urls
+models
+views
+forms
+admin
+htmls, css

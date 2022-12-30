@@ -1,0 +1,44 @@
+{% extends 'App/candidate_list.html' %}
+
+{% comment %} NAVBAR BG COLOR  {% endcomment %}
+{% block navbar %}
+    bg-danger
+{% endblock navbar %}
+
+{% comment %} NAVBAR CONTENT  {% endcomment %}
+{% block nav-content%}
+    <i class="fa fa-user-check"></i>&nbsp;&nbsp; DELETE CANDIDATE
+{% endblock nav-content%}
+
+{% comment %} FOOTER  {% endcomment %}
+{% block footer %}
+    style="color: #ff7f7f;"
+{% endblock footer %}
+
+{% comment %} PAGE CONTENT  {% endcomment %}
+{% block content %}
+    <br>
+    <div class="container" style="width: 450px;">
+        <div class="card p-3 border-dark">
+            <h6 class="modal-title">
+                <i class="fas fa-trash-alt"></i>&nbsp;&nbsp; Delete Candidate
+            </h6>
+            <hr>
+            <div class="text-center text-danger">
+                <i class="far fa-times-circle fa-5x mb-4 mt-2"></i>
+            </div>
+            <div class="text-center text-danger">
+                <span>DO YOU WANT DELETE THIS CANDIDATE?</span>
+                <div class="text-dark mt-3 mb-2"> Candidate: <strong> {{ candidate.name }}</strong></div>
+            </div>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                <input class="btn btn-outline-danger btn-sm ms-2" type="submit" value="Delete" style="float: right;">
+                <a href="{% url 'URL_read' %}" class="btn btn-secondary btn-sm" style="float: right;">Cancel</a>
+            </form>
+        </div>
+        <br><hr><br>
+        <h4 class="text-danger">If you procced, this data will become unrecoverrable</h4>
+    </div>
+{% endblock content %}

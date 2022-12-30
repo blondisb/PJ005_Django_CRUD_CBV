@@ -1,0 +1,45 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+{% block content %}
+
+    <div class="container">
+        <a href="{% url 'URL_create' %}" class="btn btn-outline-primary mb-3 mt-5">
+            <i class="fa fa-plus"></i>&nbsp;&nbsp; Candidate
+        </a>
+
+        <table class="table table-bordered" style="text-align: center; font-size: 14px;">
+            <thead class="table-primary">
+                <tr>
+                    <th style="width: 25%;">Name</th>
+                    <th style="width: 20%;">Phone</th>
+                    <th style="width: 23%;">Email</th>
+                    <th style="width: 7%;">Gender</th>
+                    <th style="width: 15%;">Position</th>
+                    <th style="width: 10%;">Actions</th>
+                </tr>
+            </thead>
+
+            {% comment %} DATA FROM DB  {% endcomment %}
+            {% for candidate in objec_list %}
+                <tr>
+                    <td>{{ candidate.name }}</td>
+                    <td>{{ candidate.phone }}</td>
+                    <td>{{ candidate.email }}</td>
+                    <td>{{ candidate.gender }}</td>
+                    <td>{{ candidate.position }}</td>
+                    <td>
+                        <a href="{% url 'URL_update' pk=candidate.id %}" class="btn btn-primary btn-sm" style="width: 45px;">
+                            <i class="fa fa-pen"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'URL_delete' pk=candidate.id %}" class="btn btn-secondary btn-sm" style="width: 45px;">
+                            <i class="fa fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+{% endblock content %}
